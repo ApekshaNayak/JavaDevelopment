@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frame id="mainFrame" size="400,500" title="Employee details"
+	defaultCloseOperation="JFrame.EXIT_ON_CLOSE">
+	<panel id="mainPanel">
+	<layout type="Formlayout" columns="5dlu,pref,5dlu"
+			rows="5dlu,pref,5dlu,pref,5dlu" />
+	<panel id="mainPanel1" constraints="2,2">
+		<layout type="Formlayout" columns="5dlu,pref,5dlu,pref,100dlu"
+			rows="5dlu,pref,10dlu,pref,10dlu,pref,10dlu,pref,10dlu,pref,5dlu" />
+		<label id="nameField" constraints="2,2" text="Name: " />
+		<textfield id="first_name" constraints="4,2,2,1" focusable="true" />
+		<button id="save" text="Save" constraints="2,6" />
+	</panel>
+	<panel id="displayPanel" constraints="2,4">
+	<layout type="Formlayout" columns="5dlu,pref,5dlu,pref,100dlu"
+			rows="5dlu,pref,10dlu,pref,10dlu,pref,10dlu,pref,10dlu,pref,5dlu" />
+	<!-- <textArea id="displayField" constraints="2,2" text="Display: " /> -->
+	</panel>
+	</panel>
+</frame>

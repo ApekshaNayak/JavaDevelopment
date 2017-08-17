@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="entity">
+	<class name="Entity">
+		<id name="empId" column="empId" type="integer" unsaved-value="0">
+			<generator class="increment" />
+		</id>
+		<property name="empName" column="empName" type="string" />
+
+		<!--<property name="empId" column="empId" type="string"/> -->
+		<property name="empEd" column="empEdu" type="string" />
+
+	</class>
+</hibernate-mapping>
+

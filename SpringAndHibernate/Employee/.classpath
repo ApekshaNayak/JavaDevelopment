@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="resources"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/build/swixml.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/ant.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/ant-launcher.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/forms-1.1.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/j2h.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/jcalendar-1.3.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/jdom.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/junit.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/quaqua.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/substance.jar"/>
+	<classpathentry exported="true" kind="lib" path="D:/JAR files/swixml_151/lib/ui.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.aop-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.asm-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.aspects-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.beans-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.context.support-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.context-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.core-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.expression-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.instrument.tomcat-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.instrument-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.jdbc-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.jms-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.orm-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.oxm-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.test-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.transaction-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.web.portlet-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.web.servlet-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.web.struts-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="D:/JAR files/SpringLib/org.springframework.web-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

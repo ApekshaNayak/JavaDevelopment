@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="answer" class="com.project.dependencyInjection.Answer">
+		<constructor-arg value="1" />
+		<constructor-arg value="02/05/2016" />
+		<constructor-arg value="Java is a programming language" />
+	</bean>
+
+	<bean id="user" class="com.project.dependencyInjection.User">
+		<constructor-arg value="101" />
+		<constructor-arg value="Aardhya" />
+		<constructor-arg value="aardhyaB@gmail.com" />
+	</bean>
+
+	<bean id="question" class="com.project.dependencyInjection.Question">
+		<constructor-arg value="1" />
+		<constructor-arg value="What is Java?" />
+		<constructor-arg>
+			<map>
+				<entry key-ref="answer" value-ref="user" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+</beans>

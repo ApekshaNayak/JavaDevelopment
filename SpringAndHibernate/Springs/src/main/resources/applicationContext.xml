@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="addr" class="com.project.Springs.Address">
+		<constructor-arg value="Bangalore" />
+		<constructor-arg value="Karnataka" />
+		<constructor-arg value="India" />
+	</bean>
+	<bean id="empl1" class="com.project.Springs.EmployeeData">
+		<constructor-arg value="6927" />
+		<constructor-arg value="Abhishek" />
+	</bean>
+	<bean id="empl2" class="com.project.Springs.EmployeeData" parent="empl1">
+		<constructor-arg ref="addr" />
+	</bean>
+	<bean id="quest" class="com.project.Springs.Questions">
+		<constructor-arg value="101" />
+		<constructor-arg  type="String" value="What is Java?" />
+		<constructor-arg>
+			<list>
+				<value>Java is a programming language</value>
+				<value>Java is a Platform</value>
+				<value>Java is an island of Indonesia</value>
+				<value>Java is the name of a sea</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="answer1" class="com.project.Springs.Answers">
+		<constructor-arg value="201" />
+		<constructor-arg value="Java is a programming language" />
+		<constructor-arg value="Saraswati" />
+	</bean>
+	<bean id="answer2" class="com.project.Springs.Answers">
+		<constructor-arg value="202" />
+		<constructor-arg value="Java is an island of Indonesia" />
+		<constructor-arg value="Shareyu" />
+	</bean>
+	<bean id="question" class="com.project.Springs.Question">
+		<constructor-arg value="102" />
+		<constructor-arg value="What is Java?" />
+		<constructor-arg>
+			<list>
+				<ref bean="answer1" />
+				<ref bean="answer2" />
+			</list>
+		</constructor-arg>
+	</bean>
+	<bean id="questionMap" class="com.project.Springs.QuestionMap">
+		<constructor-arg value="301" />
+		<constructor-arg value="What is Java?" />
+		<constructor-arg>
+			<map>
+				<entry key="Java is a programming language" value="Amit" />
+				<entry key="Java is a Platform" value="Jazz" />
+				<entry key="Java is an island of Indonesia" value="Raj Kumar" />
+			</map>
+		</constructor-arg>
+	</bean>
+
+</beans>  
