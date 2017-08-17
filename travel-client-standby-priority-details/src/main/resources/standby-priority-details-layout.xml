@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<panel Layout="BorderLayout" locale="en"
+	screenPath=" Administration | Standby priority | New standby priority">
+	<scrollpane constraints="BorderLayout.CENTER"
+		VerticalScrollBarPolicy="20" HorizontalScrollBarPolicy="31">
+		<panel id="newSPParentPanel" visible="true">
+			<layout type="FormLayout" columns="0dlu,fill:0:grow(0.07),0dlu"
+				rows="pref,pref,pref,2dlu,pref" />
+			<panel id="newSPsubscriberPanel" constraints="2,1">
+				<layout type="FormLayout" columns="pref,2dlu,pref,10dlu,pref,2dlu,pref,pref:grow"
+					rows="2dlu,pref,4dlu" />
+				<label id="newSPSubscriberLabel" text="Subscriber"
+					constraints="1,2" font="Arial-PLAIN-12" />
+				<SITALOV id="newSPSubscriberLOV" constraints="3,2"
+					searchIndex="1" preferredsize="68,21" helpSetId="Form.Id"
+					dialogTitle="Subscriber Code" focusOnComponent="true"
+					firstRowAutoSelect="true" ShortcutKey="F3" autotab="0:5"
+					suppresschar="" casename="upper" lazyinit="true" minsearchlength="0">
+					<NGAFFilterTablePanel componentID="filterTablePanel"
+						interComponentSpacing="0,0,0">
+						<SITAPagination componentID="sitaGuiPagination"
+							recordsPerPage="10" queryId="aero.sita"
+							ngafPaginationClientListener="subscriberLovPaginationListenerService" />
+						<NGAFFilterPanel componentID="filterRow" />
+						<NGAFStandardTable componentID="standardTable"
+							hidingAllowed="false" cellPadding="4" tableType="1" editable="false"
+							sortable="true" baseBackGroundColor="255,255,255"
+							alternateBackGroundColor="240,240,240" columnHeader="Subscriber Code, Subscriber Name"
+							tableResponseListenerFilter="subscriberLovTableResponseListenerService" />
+					</NGAFFilterTablePanel>
+				</SITALOV>
+
+
+				<label id="newSPAirlineLabel" text="Airline" constraints="5,2"
+					font="Arial-PLAIN-12" />
+				<SITALOV id="newSPAirlineLOV" constraints="7,2" searchIndex="1"
+					preferredsize="68,21" helpSetId="Form.Id" dialogTitle="Airline Code"
+					focusOnComponent="true" firstRowAutoSelect="true" ShortcutKey="F3"
+					autotab="0:3" suppresschar="" casename="upper" lazyinit="true"
+					minsearchlength="0">
+					<NGAFFilterTablePanel componentID="filterTablePanel"
+						interComponentSpacing="0,0,0">
+						<SITAPagination componentID="sitaGuiPagination"
+							recordsPerPage="10" queryId="aero.sita"
+							ngafPaginationClientListener="airlineCodeLovPaginationListenerService" />
+						<NGAFFilterPanel componentID="filterRow" />
+						<NGAFStandardTable componentID="standardTable"
+							hidingAllowed="false" cellPadding="4" tableType="1" editable="false"
+							sortable="true" baseBackGroundColor="255,255,255"
+							alternateBackGroundColor="240,240,240" columnHeader="IATA Code, ICAO Code, Airline Name"
+							tableResponseListenerFilter="airlineCodeLovTableResponseListenerService" />
+					</NGAFFilterTablePanel>
+				</SITALOV>
+			</panel>
+			<NGAFFilterTablePanel id="newSPFilterTablePanel"
+				componentID="filterTablePanel" interComponentSpacing="0,0,0"
+				constraints="2,2" scrollPanePreferredSize="800,424">
+				<layout type="FormLayout" columns="260dlu,440px,fill:0:grow(0.07)"
+					rows="2dlu,pref,2dlu,pref,2dlu,pref:grow" />
+				<SITAPagination componentID="sitaGuiPagination" id="newSPPagination"
+					recordsPerPage="2000" queryId="aero.sita"
+					ngafPaginationClientListener="newStandByPriorityPaginationListener"
+					constraints="1,2" />
+				<NGAFFilterPanel id="newSPFilterPanel" componentID="filterRow"
+					filterColumns="2,6,8,10,12" constraints="1,2,3,1" />
+				<panel id="newSPLabelPanel" constraints="2,4">
+					<layout type="FormLayout" columns="pref:grow,51dlu,53dlu,59dlu,70dlu"
+						rows="20px" />
+					<label id="newSPBookedLabel" text="Booked" constraints="2,1"
+						font="TimesNewRoman-PLAIN-12" />
+					<label id="newSPNoRecLabel" text="NOREC" constraints="3,1"
+						font="TimesNewRoman-PLAIN-12" />
+					<label id="newSPWaitlistLabel" text="Waitlist" constraints="4,1"
+						font="TimesNewRoman-PLAIN-12" />
+					<label id="newSPOpenTicketLabel" text="Open ticket"
+						constraints="5,1" font="TimesNewRoman-PLAIN-12" />
+				</panel>
+				<NGAFStandardTable id="newSPStandardTable"
+					componentID="standardTable" constraints="1,6,3,1" hidingAllowed="false"
+					tableType="2" editable="true" sortable="true" ShowGrid="true"
+					cellPadding="2" sortableColumns="4,6,8,10" baseBackGroundColor="255,255,255"
+					alternateBackGroundColor="240,240,240" showVerticalLines="true"
+					columnHeader="Priority code, Description, Check PAD, Date of joining, Priority,PAD, Priority,PAD, Priority,PAD,Priority,PAD,SA ticket,hiddenColumn"
+					columnAlign="left,left,left,left,center,left,center,left,center,left,center,left,left"
+					tableResponseListenerFilter="StandbyPriorityResponseListenerService"
+					rowNumberEnabled="true" RowHeight="20" RowMargin="0" />
+			</NGAFFilterTablePanel>
+			<panel id="newSPButtonPanel" constraints="2,5">
+				<layout type="FormLayout" columns="pref,pref:grow,pref" rows="pref" />
+				<panel id="newSPFirstButtonPanel" constraints="1,1">
+					<layout type="FormLayout" columns="pref"
+						rows="20px,10dlu,20px,pref:grow" />
+					<panel id="newSPFirstRowButtonPanel" constraints="1,1">
+						<layout type="FormLayout" columns="pref,2dlu,20dlu,2dlu,pref,4dlu,60dlu,20dlu"
+							rows="20px" />
+						<label id="newSPNoOfRowsLabel" text="No.of rows" font="Arial-PLAIN-12"
+							constraints="1,1" />
+						<combobox id="newSPNoOfRowsCombobox" constraints="3,1" />
+						<button id="newSPAddRowsButton" text="Add Row(s)"
+							 toolTipText="Add Row(s)" constraints="5,1" enabled="true" />
+						<button id="newSPViewEditDescButton" text="View/Edit Description"
+							toolTipText="View/Edit Description" constraints="7,1,2,1" enabled="false" />
+					</panel>
+					<panel id="newSPSecondRowButtonPanel" constraints="1,3">
+						<layout type="FormLayout" columns="pref,4dlu,pref,40dlu"
+							rows="20px" />
+						<button id="newSPCreateButton" text="Create Standby Priority"
+							toolTipText="Create Standby Priority" constraints="1,1" enabled="true" />
+						<button id="newSPUpdateButton" text="Update Standby Priority"
+							toolTipText="Update Standby Priority" constraints="1,1" visible="false" />
+						<button id="newSPCopyButton" text="Copy Standby Priority"
+							toolTipText="Copy Standby Priority" constraints="3,1" enabled="false" />
+					</panel>
+				</panel>
+				<panel id="newSPSecondButtonPanel" constraints="3,1">
+					<layout type="FormLayout" columns="pref,4dlu,pref"
+						rows="20px,10dlu,20px,pref:grow" />
+					<button id="newSPResetButton" text="Reset" toolTipText="Reset" constraints="1,3" />
+					<button id="newSPDeleteSelRowsButton" text="Delete Selected Rows(s)"
+						toolTipText="Delete Selected Rows(s)" constraints="3,1" enabled="false" />
+					<panel id="deleteCloseButtonPanel" constraints="3,3">
+						<layout type="FormLayout" columns="pref:grow,4dlu,pref:grow"
+							rows="20px" />
+						<button id="newSPDeleteButton" text="Delete" constraints="1,1"
+							toolTipText="Delete" enabled="false" />
+						<button id="newSPCloseButton" text="Close" constraints="3,1"
+							toolTipText="Close" enabled="true" />
+					</panel>
+				</panel>
+			</panel>
+		</panel>
+	</scrollpane>
+</panel>

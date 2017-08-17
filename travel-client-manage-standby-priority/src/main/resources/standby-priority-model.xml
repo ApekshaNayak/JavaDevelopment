@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This xml defines the model object and the mapping between Swing components 
+	and model object. It also defines convertors and validators for each component. -->
+<lifecycle>
+
+	<!-- Define model object and component mapping here -->
+
+</lifecycle>

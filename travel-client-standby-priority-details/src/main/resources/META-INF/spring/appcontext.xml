@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans             http://www.springframework.org/schema/beans/spring-beans.xsd             
+http://www.springframework.org/schema/context             http://www.springframework.org/schema/context/spring-context.xsd            
+http://www.springframework.org/schema/osgi             http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+	<bean id="standby-priority-details"
+		class="aero.sita.voyager.travel.client.travel.standbyprioritydetails.controllers.StandbyPriorityDetailsController"
+		scope="prototype">
+		<property name="layout" value="standby-priority-details-layout.xml" />
+		<property name="model" value="standby-priority-details-model.xml" />
+		<property name="dataBinderType" value="buffered" />
+		<property name="manageStandbyPriorityProxy" ref="standbyPriorityManager" />
+		<property name="commonUtilitiesGateWay" ref="commonUtilitiesGateWayImpl" />
+		<property name="standbyPriorityDetailsScreenHelper">
+			<bean
+				class="aero.sita.voyager.travel.client.travel.standbyprioritydetails.helpers.StandByPriortyDetailsHelper" />
+		</property>
+
+		<property name="createAndUpdateHelper">
+			<bean
+				class="aero.sita.voyager.travel.client.travel.standbyprioritydetails.helpers.CreateAndUpdateHelper" />
+		</property>
+
+		<property name="standbyPriorityDetailsValidator">
+			<bean
+				class="aero.sita.voyager.travel.client.travel.standbyprioritydetails.validators.StandbyPriorityDetailsValidator" />
+		</property>
+		<property name="closeStandbyPriorityValidator">
+			<bean
+				class="aero.sita.voyager.travel.client.travel.standbyprioritydetails.validators.CloseStandbyPriorityValidator" />
+		</property>
+
+	</bean>
+	<bean id="newSearchSPResponseListener"
+		class="aero.sita.voyager.travel.client.travel.standbyprioritydetails.listeners.StandbyPriorityResponseListener" />
+	<bean id="newSPPaginationListener"
+		class="aero.sita.voyager.travel.client.travel.standbyprioritydetails.listeners.StandbyPriorityPaginationListener"
+		scope="prototype">
+	</bean>
+
+
+</beans>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans.xsd 
+            http://www.springframework.org/schema/osgi 
+            http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+	<osgi:service id="standbyPriorityServ" ref="manage-standby-priority">
+		<osgi:interfaces>
+			<value>aero.sita.csp.gui.thickclient.coreapi.Controller</value>
+		</osgi:interfaces>
+		<service-properties>
+			<entry key="module.name" value="manage-standby-priority" />
+		</service-properties>
+	</osgi:service>
+
+
+	<osgi:service id="DefaultStandByPriorityPaginationListener"
+		ref="defaultSPPaginationListener"
+		interface="aero.sita.csp.gui.pagination.listener.client.NGAFPaginationClientListener">
+		<osgi:service-properties> <entry key="ngaf.pagination.clientListener" value="DefaultStandByPriorityPaginationListener" /> 
+		</osgi:service-properties>
+	</osgi:service>
+	
+	<osgi:service id="DefaultStandByPriorityResponseListenerService"
+		ref="defaultSPResponseListener" interface="aero.sita.csp.gui.table.NGAFTableResponseListener">
+		<osgi:service-properties>
+			<entry key="ngaftable.listener" value="DefaultStandByPriorityResponseListenerService" /> 
+			</osgi:service-properties>
+	</osgi:service>
+	<osgi:service id="SearchStandByPriorityResponseListener"
+		ref="searchSPResponseListener" interface="aero.sita.csp.gui.table.NGAFTableResponseListener">
+		<osgi:service-properties>
+			<entry key="ngaftable.listener" value="SearchStandByPriorityResponseListener" />
+		</osgi:service-properties>
+	</osgi:service>
+
+	<osgi:service id="SearchStandByPriorityPaginationListener"
+		ref="searchSPPaginationListener"
+		interface="aero.sita.csp.gui.pagination.listener.client.NGAFPaginationClientListener">
+		<osgi:service-properties>
+			<entry key="ngaf.pagination.clientListener" value="SearchStandByPriorityPaginationListener" />
+		</osgi:service-properties>
+	</osgi:service>
+	<!-- For reference to Common utilities gateway -->
+	<osgi:reference id="commonUtilitiesGateWayImpl"
+		interface="aero.sita.voyager.dcs.client.common.services.CommonUtilitiesGateWay">
+	</osgi:reference>
+	<!-- For exporting OSGI bean for standby priority manager proxy -->
+	<osgi:reference id="standbyPriorityManager"
+		interface="aero.sita.voyager.checkin.standbyprioritymanager.interfaces.ManageStandbyPriority">
+	</osgi:reference>
+</beans>

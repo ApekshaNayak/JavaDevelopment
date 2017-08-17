@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:osgi="http://www.springframework.org/schema/osgi"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans             http://www.springframework.org/schema/beans/spring-beans.xsd             
+http://www.springframework.org/schema/context             http://www.springframework.org/schema/context/spring-context.xsd            
+http://www.springframework.org/schema/osgi             http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+
+	<bean id="manage-standby-priority"
+		class="aero.sita.voyager.travel.client.travel.standbypriority.controllers.StandbyPriorityController"
+		scope="prototype">
+		<property name="layout" value="standby-priority-layout.xml" />
+		<property name="model" value="standby-priority-model.xml" />
+		<property name="dataBinderType" value="buffered" />
+
+		<property name="defaultSPScreenHelper">
+			<bean
+				class="aero.sita.voyager.travel.client.travel.standbypriority.helpers.DefaultStandbyPriorityScreenHelper" />
+		</property>
+		<property name="commonUtilitiesGateWay" ref="commonUtilitiesGateWayImpl"/>
+		<property name="manageStandbyPriorityProxy" ref="standbyPriorityManager"/>
+		<property name="tabbedScreenHelper">
+			<bean
+				class="aero.sita.voyager.travel.client.travel.standbypriority.helpers.TabbedScreenHelper" />
+		</property>
+
+		<property name="standbyPriorityScreenHelper">
+			<bean
+				class="aero.sita.voyager.travel.client.travel.standbypriority.helpers.StandbyPriorityScreenHelper"></bean>
+		</property>
+
+		<property name="standbyPriorityValidator">
+			<bean
+				class="aero.sita.voyager.travel.client.travel.standbypriority.validators.StandbyPriorityValidator" />
+		</property>
+		<property name="deleteStanbyPriorityValidator">
+			<bean
+				class="aero.sita.voyager.travel.client.travel.standbypriority.validators.DeleteStanbyPriorityValidator" />
+		</property>
+		
+		
+	</bean>
+
+	<bean id="searchSPResponseListener"
+		class="aero.sita.voyager.travel.client.travel.standbypriority.listeners.SearchStandByPriorityResponseListener" />
+
+	<bean id="searchSPPaginationListener"
+		class="aero.sita.voyager.travel.client.travel.standbypriority.listeners.SearchStandByPriorityPaginationListener">
+		<property name="commonUtilitiesGateWay" ref="commonUtilitiesGateWayImpl"/>
+		</bean>
+
+	<bean id="defaultSPResponseListener"
+		class="aero.sita.voyager.travel.client.travel.standbypriority.listeners.DefaultStandbyPriorityResponseListener"
+		scope="prototype">
+	</bean>
+	<bean id="defaultSPPaginationListener"
+		class="aero.sita.voyager.travel.client.travel.standbypriority.listeners.DefaultStandbyPriorityPaginationListener"
+		scope="prototype">
+	</bean>
+</beans>

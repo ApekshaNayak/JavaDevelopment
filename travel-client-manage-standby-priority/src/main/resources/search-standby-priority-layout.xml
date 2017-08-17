@@ -1,0 +1,112 @@
+<panel id="searchSPParentPanel">
+	<layout type="FormLayout" columns="pref:grow" rows="fill:pref" />
+	<panel id="parentPanelDSearchTab" constraints="1,1">
+		<layout type="FormLayout" columns="2dlu,pref:grow,2dlu"
+			rows="1dlu,pref,5dlu,pref,3dlu,fill:pref:grow" />
+		<DCSTaskPane id="searchSPResultsPanelHeader"
+			mouseHowering="false" expanded="true" title="Search" visible="true"
+			constraints="2,2,1,1">
+			<panel id="searchSPPanel" constraints="2,1">
+				<layout type="FormLayout"
+					columns="2px,pref,3px,pref,7dlu,pref,2px,pref,10dlu,3dlu,pref,2px,pref,30px,pref,2dlu,130px,2dlu"
+					rows="0dlu,20dlu,15dlu" />
+				<label id="searchSPSubscriberLabel" text="Subscriber"
+					constraints="2,2" font="Arial-PLAIN-12" />
+				<SITALOV id="searchSPSubscriberLOV" constraints="4,2"
+					searchIndex="1" preferredsize="68,21" helpSetId="Form.Id"
+					dialogTitle="Subscriber Code" focusOnComponent="true"
+					firstRowAutoSelect="true" ShortcutKey="F3" autotab="0:5"
+					suppresschar="" casename="upper" lazyinit="true" minsearchlength="0">
+					<NGAFFilterTablePanel componentID="filterTablePanel"
+						interComponentSpacing="0,0,0">
+						<SITAPagination componentID="sitaGuiPagination"
+							recordsPerPage="10" queryId="aero.sita"
+							ngafPaginationClientListener="subscriberLovPaginationListenerService" />
+						<NGAFFilterPanel componentID="filterRow" />
+						<NGAFStandardTable componentID="standardTable"
+							hidingAllowed="false" cellPadding="4" tableType="1" editable="false"
+							sortable="true" baseBackGroundColor="255,255,255"
+							alternateBackGroundColor="240,240,240" columnHeader="Subscriber Code, Subscriber Name"
+							tableResponseListenerFilter="subscriberLovTableResponseListenerService" />
+					</NGAFFilterTablePanel>
+				</SITALOV>
+
+
+				<label id="searchSPAirLinesLabel" text="Airline(s)"
+					constraints="6,2" font="Arial-PLAIN-12" />
+				<NGAFMultiSelectLOV id="searchSPAirlinesLOV" textComponentDimension="150,40"  mandatory="true"
+					ghostText="0:Add multiple values separated by commas"
+					suppresschar="2:[^A-Z0-9]" constraints="8,2,1,2" searchIndex="1"
+					helpSetId="auth.author" dialogTitle="Airline Code"
+					ngafLOVValidatorListener="airlineCodeLovPaginationListenerService"
+					focusOnComponent="true" firstRowAutoSelect="true" shortCutKey="F9"
+					casename="upper" lazyinit="true" minsearchlength="0">
+					<NGAFFilterTablePanel componentID="filterTablePanel"
+						id="searchSPAirlinesFilterTablePanel" preferredSize="500,650">
+						<SITAPagination componentID="sitaGuiPagination"
+							id="searchSPAirlinesPagination" recordsPerPage="10" queryId="aero.sita"
+							ngafPaginationClientListener="airlineCodeLovPaginationListenerService" />
+						<NGAFFilterPanel componentID="filterRow"
+							id="searchSPAirlinesFilterPanel" />
+						<NGAFStandardTable componentID="standardTable"
+							loadDataOnInit="false" name="airlineCodesStdTable" id="searchSPAirlinesStandardTable"
+							cellPadding="4" tableType="2" editable="false" sortable="true"
+							baseBackGroundColor="255,255,255" alternateBackGroundColor="240,240,240"
+							tableResponseListenerFilter="airlineCodeLovTableResponseListenerService"
+							columnHeader="IATA Code,  ICAO Code,  Airline Name" columnAlign="left,left,left" />
+					</NGAFFilterTablePanel>
+				</NGAFMultiSelectLOV>
+			</panel>
+			<panel id="searchSPButtonsSearchPanel" constraints="1,2,8,1">
+				<layout type="FormLayout" columns="pref,pref:grow,pref" rows="20px" />
+				<button id="searchSPSearchButton" text="Search" constraints="1,1"
+					toolTipText="Search" enabled="true" />
+				<button id="searchSPResetButton" text="Reset" constraints="3,1"
+					toolTipText="Reset" enabled="true" />
+			</panel>
+		</DCSTaskPane>
+		<DCSTaskPane id="searchSPResultsPaneHeader" mouseHowering="false"
+			expanded="true" title="Results" visible="true" Collapsed="true"
+			constraints="2,4">
+			<panel id="searchSPResultsPanel" constraints="2,3">
+				<layout type="FormLayout" columns="pref" rows="2dlu,pref,4dlu,pref,5dlu" />
+				<panel id="searchSPResultNavigator" constraints="1,2" visible="true">
+					<layout type="FormLayout" columns="pref:grow" rows="pref,2dlu,pref" />
+					<NGAFFilterTablePanel id="searchSPFilterTablePanel"
+						componentID="filterTablePanel" scrollPanePreferredSize="70,203"
+						constraints="1,1">
+						<layout type="FormLayout" columns="pref,pref:grow,pref"
+							rows="2dlu,pref,2dlu,pref,2dlu,pref" />
+						<SITAPagination id="searchSPPagination"
+							componentID="sitaGuiPagination" recordsPerPage="10" queryId="aero.sita"
+							ngafPaginationClientListener="SearchStandByPriorityPaginationListener"
+							constraints="1,2" />
+						<NGAFFilterPanel id="searchSPFilterRowPanel"
+							componentID="filterRow" constraints="1,4,3,1" filterColumns="2,3" />
+						<NGAFStandardTable id="searchSPStandardTable"
+							initialStateCollapsed="false" componentID="standardTable"
+							constraints="1,6,3,1" cellPadding="2" loadDataOnInit="false"
+							columnHeader="Airline code,Airline name"
+							columnAlign="right,left,left,left,left,left,right,right,right,center,left,center,left,left"
+							tableType="2" sortableColumns="0,1,2" suppresschar="" ShowGrid="true"
+							editable="false" tableResponseListenerFilter="SearchStandByPriorityResponseListener"
+							rowNumberEnabled="true" showVerticalLines="true" />
+					</NGAFFilterTablePanel>
+				</panel>
+				<panel id="searchSPResultsButtonPanel" constraints="1,4">
+					<layout type="FormLayout" columns="pref,2dlu,pref,pref:grow"
+						rows="20px" />
+					<button id="searchSPOpenButton" text="Open" constraints="1,1"
+						toolTipText="Open" enabled="true" />
+					<button id="searchSPCopyButton" text="Copy Standby Priority"
+						toolTipText="Copy Standby Priority" constraints="3,1" enabled="true" />
+				</panel>
+			</panel>
+		</DCSTaskPane>
+		<panel id="searchSPCreateButtonPanel" constraints="2,6">
+			<layout type="FormLayout" columns="pref,pref:grow" rows="20px,2dlu" />
+			<button id="searchSPCreateButton" text="Create Standby Priority"
+				toolTipText="Create Standby Priority" constraints="1,1" enabled="true" />
+		</panel>
+	</panel>
+</panel>
